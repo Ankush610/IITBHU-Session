@@ -66,13 +66,6 @@ echo "Launching Accelerate Training"
 echo "===================================="
 
 srun accelerate launch \
-  --num_machines $SLURM_NNODES \
-  --machine_rank $SLURM_NODEID \
-  --main_process_ip $MASTER_ADDR \
-  --main_process_port $MASTER_PORT \
-  --num_processes $WORLD_SIZE \
-  --mixed_precision no \
-  --dynamo_backend no \
   mnist_accelerate_ddp.py \
   --epochs 20 \
   --batch-size 32
